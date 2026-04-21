@@ -1,0 +1,279 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B37B4492F976CB500783207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B37B4482F976CB500783207 /* Assets.xcassets */; };
+		A1B2C3D41A00000100000001 /* AppIconGeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31A00000100000001 /* AppIconGeneratorApp.swift */; };
+		A1B2C3D41A00000100000002 /* GuidePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31A00000100000002 /* GuidePageView.swift */; };
+		A1B2C3D41A00000100000003 /* IconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31A00000100000003 /* IconGenerator.swift */; };
+		A1B2C3D41A00000100000004 /* IconSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31A00000100000004 /* IconSpecs.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8B37B4482F976CB500783207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1B2C3D21A00000100000001 /* AppIconGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppIconGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D31A00000100000001 /* AppIconGeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconGeneratorApp.swift; sourceTree = "<group>"; };
+		A1B2C3D31A00000100000002 /* GuidePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidePageView.swift; sourceTree = "<group>"; };
+		A1B2C3D31A00000100000003 /* IconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
+		A1B2C3D31A00000100000004 /* IconSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSpecs.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B2C3D11A00000100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1B2C3D01A00000100000001 = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D01A00000100000004 /* AppIconGeneratorApp */,
+				8B37B4482F976CB500783207 /* Assets.xcassets */,
+				A1B2C3D01A00000100000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D01A00000100000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D21A00000100000001 /* AppIconGenerator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1B2C3D01A00000100000004 /* AppIconGeneratorApp */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D31A00000100000001 /* AppIconGeneratorApp.swift */,
+				A1B2C3D31A00000100000002 /* GuidePageView.swift */,
+				A1B2C3D31A00000100000003 /* IconGenerator.swift */,
+				A1B2C3D31A00000100000004 /* IconSpecs.swift */,
+			);
+			path = AppIconGeneratorApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1B2C3D51A00000100000001 /* AppIconGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D61A00000100000001 /* Build configuration list for PBXNativeTarget "AppIconGenerator" */;
+			buildPhases = (
+				A1B2C3D71A00000100000001 /* Sources */,
+				A1B2C3D11A00000100000001 /* Frameworks */,
+				A1B2C3D81A00000100000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppIconGenerator;
+			productName = AppIconGenerator;
+			productReference = A1B2C3D21A00000100000001 /* AppIconGenerator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B2C3D91A00000100000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 2500;
+				LastUpgradeCheck = 2500;
+				TargetAttributes = {
+					A1B2C3D51A00000100000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A1B2C3DA1A00000100000001 /* Build configuration list for PBXProject "AppIconGenerator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1B2C3D01A00000100000001;
+			productRefGroup = A1B2C3D01A00000100000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B2C3D51A00000100000001 /* AppIconGenerator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3D81A00000100000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B37B4492F976CB500783207 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B2C3D71A00000100000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D41A00000100000001 /* AppIconGeneratorApp.swift in Sources */,
+				A1B2C3D41A00000100000002 /* GuidePageView.swift in Sources */,
+				A1B2C3D41A00000100000003 /* IconGenerator.swift in Sources */,
+				A1B2C3D41A00000100000004 /* IconSpecs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1B2C3DB1A00000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4Q4SSUS9YT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AppIconGenerator;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.weare.AppIconGenerator;
+				PRODUCT_NAME = AppIconGenerator;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A1B2C3DB1A00000100000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4Q4SSUS9YT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AppIconGenerator;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.weare.AppIconGenerator;
+				PRODUCT_NAME = AppIconGenerator;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A1B2C3DC1A00000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_NAME = AppIconGenerator;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		A1B2C3DC1A00000100000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AppIconGenerator;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1B2C3D61A00000100000001 /* Build configuration list for PBXNativeTarget "AppIconGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3DB1A00000100000001 /* Debug */,
+				A1B2C3DB1A00000100000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3DA1A00000100000001 /* Build configuration list for PBXProject "AppIconGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3DC1A00000100000001 /* Debug */,
+				A1B2C3DC1A00000100000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B2C3D91A00000100000001 /* Project object */;
+}
