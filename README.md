@@ -17,13 +17,6 @@
 3. Scheme `AppIconGenerator` 선택
 4. Run (`Cmd + R`)
 
-### 2) Swift Package로 실행
-
-```bash
-swift build
-swift run
-```
-
 ## 주요 기능
 
 - 드래그 앤 드롭 또는 파일 선택으로 원본 이미지 입력
@@ -95,6 +88,105 @@ swift run
 2. `.app` 파일 준비
 3. `hdiutil`로 `.dmg` 생성
 4. (권장) 코드 서명 + notarization + staple
+
+## create-dmg 배포 스크립트
+
+프로젝트에 create-dmg 기반 자동 배포 스크립트가 포함되어 있습니다.
+
+1. create-dmg 설치
+
+```bash
+brew install create-dmg
+```
+
+2. 실행 권한 부여(최초 1회)
+
+```bash
+chmod +x scripts/create-dmg.sh
+```
+
+3. Release 빌드 + DMG 생성
+
+```bash
+./scripts/create-dmg.sh
+```
+
+4. 빌드 생략하고 기존 .app으로 DMG만 생성
+
+```bash
+./scripts/create-dmg.sh --no-build
+```
+
+생성 결과물 위치:
+
+- `dist/AppIconGenerator.dmg`
+
+문제가 발생할 때(예: xcodebuild requires Xcode):
+
+```bash
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+```
+
+## 코드 사이닝(Code Signing)
+
+앱 신뢰성 검증을 위해 코드 서명을 적용할 수 있습니다.
+
+1. 서명 스크립트 실행 권한 부여(최초 1회)
+
+```bash
+chmod +x scripts/sign-app.sh
+```
+
+2. 기본 경로의 Release 앱 서명 + 검증
+
+```bash
+./scripts/sign-app.sh
+```
+
+3. DMG까지 함께 서명
+
+```bash
+./scripts/sign-app.sh --dmg dist/AppIconGenerator.dmg
+```
+
+참고:
+
+- 외부 배포(게이트키퍼 통과) 목적이면 `Developer ID Application` 인증서를 사용해야 합니다.
+- `Apple Development` 인증서는 개발/테스트 목적에 적합합니다.
+- 외부 배포 완성 단계에서는 notarization + staple을 추가로 수행하세요.
+
+## 릴리스 체크리스트
+
+블로그/외부 공유 전에 아래 순서를 권장합니다.
+
+1. Release 빌드
+
+```bash
+./scripts/create-dmg.sh
+```
+
+2. 코드 서명
+
+```bash
+./scripts/sign-app.sh --dmg dist/AppIconGenerator.dmg
+```
+
+3. 검증
+
+```bash
+codesign --verify --deep --strict --verbose=2 build/DerivedData/Build/Products/Release/AppIconGenerator.app
+codesign --verify --verbose=2 dist/AppIconGenerator.dmg
+spctl -a -vv build/DerivedData/Build/Products/Release/AppIconGenerator.app
+```
+
+4. (권장) notarization + staple
+
+- Gatekeeper 경고 없이 배포하려면 notarization이 필요합니다.
+
+## 블로그 게시용 원고
+
+- 블로그 본문 초안은 `docs/blog-post-ko.md`에 있습니다.
+- 필요 시 스크린샷/다운로드 링크만 추가해서 바로 게시할 수 있습니다.
 
 ## 주의 사항
 
