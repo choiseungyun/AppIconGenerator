@@ -183,11 +183,6 @@ spctl -a -vv build/DerivedData/Build/Products/Release/AppIconGenerator.app
 
 - Gatekeeper 경고 없이 배포하려면 notarization이 필요합니다.
 
-## 블로그 게시용 원고
-
-- 블로그 본문 초안은 `docs/blog-post-ko.md`에 있습니다.
-- 필요 시 스크린샷/다운로드 링크만 추가해서 바로 게시할 수 있습니다.
-
 ## 주의 사항
 
 - 원본 이미지는 최소 1024x1024 이상이어야 합니다.
