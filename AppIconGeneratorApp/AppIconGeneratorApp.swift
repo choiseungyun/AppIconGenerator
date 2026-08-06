@@ -106,11 +106,13 @@ struct ContentView: View {
 
     private var backgroundLayer: some View {
         ZStack {
+            Color(nsColor: .windowBackgroundColor)
+
             LinearGradient(
                 colors: [
-                    Color(red: 0.96, green: 0.97, blue: 1.0),
-                    Color(red: 0.91, green: 0.95, blue: 0.99),
-                    Color(red: 0.98, green: 0.98, blue: 0.99)
+                    Color.blue.opacity(0.06),
+                    Color.cyan.opacity(0.05),
+                    Color.clear
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -188,10 +190,10 @@ struct ContentView: View {
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 10)
-        .background(.white.opacity(0.55), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .stroke(Color.white.opacity(0.9), lineWidth: 1)
+                .stroke(cardStroke, lineWidth: 1)
         )
     }
 
@@ -248,10 +250,10 @@ struct ContentView: View {
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 10)
-        .background(.white.opacity(0.55), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .stroke(Color.white.opacity(0.9), lineWidth: 1)
+                .stroke(cardStroke, lineWidth: 1)
         )
     }
 
@@ -261,16 +263,10 @@ struct ContentView: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.white.opacity(0.92), Color.white.opacity(0.78)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                    .fill(.regularMaterial)
 
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
-                    .strokeBorder(Color.white.opacity(0.9), lineWidth: 1)
+                    .strokeBorder(cardStroke, lineWidth: 1)
 
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
                     .stroke(style: StrokeStyle(lineWidth: 2, dash: [9]))
@@ -304,7 +300,7 @@ struct ContentView: View {
                             .foregroundStyle(.secondary)
                             .padding(.horizontal, 12)
                             .padding(.vertical, 6)
-                            .background(Color.white.opacity(0.85), in: Capsule())
+                            .background(.thickMaterial, in: Capsule())
 
                         if let sourceImageURL {
                             Text(sourceImageURL.lastPathComponent)
@@ -386,7 +382,7 @@ struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: 22, style: .continuous)
-                        .stroke(Color.white.opacity(0.85), lineWidth: 1)
+                        .stroke(cardStroke, lineWidth: 1)
                 )
             }
 
@@ -438,7 +434,7 @@ struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: 22, style: .continuous)
-                        .stroke(Color.white.opacity(0.85), lineWidth: 1)
+                        .stroke(cardStroke, lineWidth: 1)
                 )
             }
 
@@ -465,7 +461,7 @@ struct ContentView: View {
                         .truncationMode(.middle)
                         .padding(12)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(.white.opacity(0.72), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
 
                     wrappingHint("선택한 폴더 아래에 iPhone/iPad/macOS/watchOS/Android 등 켜져 있는 항목별로 하위 폴더가 자동 생성됩니다. 이미지를 직접 선택하면 원본 파일과 같은 위치에 파일명 폴더로 기본 지정되며, Generate files를 누르면 그 폴더에 대한 쓰기 권한을 한 번 더 확인하는 창이 뜰 수 있습니다.")
 
@@ -484,7 +480,7 @@ struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: 22, style: .continuous)
-                        .stroke(Color.white.opacity(0.85), lineWidth: 1)
+                        .stroke(cardStroke, lineWidth: 1)
                 )
             }
         }
@@ -515,7 +511,7 @@ struct ContentView: View {
             .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: 22, style: .continuous)
-                    .stroke(Color.white.opacity(0.85), lineWidth: 1)
+                    .stroke(cardStroke, lineWidth: 1)
             )
         }
         .frame(width: dropZoneSize)
@@ -582,11 +578,11 @@ struct ContentView: View {
     }
 
     private var cardFill: some ShapeStyle {
-        .linearGradient(
-            colors: [Color.white.opacity(0.9), Color.white.opacity(0.72)],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
+        .regularMaterial
+    }
+
+    private var cardStroke: Color {
+        Color(nsColor: .separatorColor)
     }
 
     private var canGenerate: Bool {
