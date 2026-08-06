@@ -5,6 +5,7 @@ enum ApplePlatform: String, CaseIterable {
     case iPad
     case macOS
     case watchOS
+    case iOS
 
     var folderName: String {
         rawValue
@@ -16,6 +17,15 @@ struct AppleIconSpec {
     let pointSize: Double
     let scale: Int
     let fileNamePrefix: String
+    let flattensAlpha: Bool
+
+    init(idiom: String, pointSize: Double, scale: Int, fileNamePrefix: String, flattensAlpha: Bool = false) {
+        self.idiom = idiom
+        self.pointSize = pointSize
+        self.scale = scale
+        self.fileNamePrefix = fileNamePrefix
+        self.flattensAlpha = flattensAlpha
+    }
 
     var pixelSize: Int {
         Int((pointSize * Double(scale)).rounded())
@@ -39,6 +49,11 @@ struct AndroidIconSpec {
     let pixelSize: Int
 }
 
+struct AndroidAdaptiveIconSpec {
+    let folder: String
+    let pixelSize: Int
+}
+
 enum IconSpecs {
     static let iPhone: [AppleIconSpec] = [
         .init(idiom: "iphone", pointSize: 20, scale: 2, fileNamePrefix: "iphone"),
@@ -48,7 +63,8 @@ enum IconSpecs {
         .init(idiom: "iphone", pointSize: 40, scale: 2, fileNamePrefix: "iphone"),
         .init(idiom: "iphone", pointSize: 40, scale: 3, fileNamePrefix: "iphone"),
         .init(idiom: "iphone", pointSize: 60, scale: 2, fileNamePrefix: "iphone"),
-        .init(idiom: "iphone", pointSize: 60, scale: 3, fileNamePrefix: "iphone")
+        .init(idiom: "iphone", pointSize: 60, scale: 3, fileNamePrefix: "iphone"),
+        .init(idiom: "ios-marketing", pointSize: 1024, scale: 1, fileNamePrefix: "ios-marketing", flattensAlpha: true)
     ]
 
     static let iPad: [AppleIconSpec] = [
@@ -60,7 +76,8 @@ enum IconSpecs {
         .init(idiom: "ipad", pointSize: 40, scale: 2, fileNamePrefix: "ipad"),
         .init(idiom: "ipad", pointSize: 76, scale: 1, fileNamePrefix: "ipad"),
         .init(idiom: "ipad", pointSize: 76, scale: 2, fileNamePrefix: "ipad"),
-        .init(idiom: "ipad", pointSize: 83.5, scale: 2, fileNamePrefix: "ipad")
+        .init(idiom: "ipad", pointSize: 83.5, scale: 2, fileNamePrefix: "ipad"),
+        .init(idiom: "ios-marketing", pointSize: 1024, scale: 1, fileNamePrefix: "ios-marketing", flattensAlpha: true)
     ]
 
     static let macOS: [AppleIconSpec] = [
@@ -95,6 +112,22 @@ enum IconSpecs {
         .init(folder: "mipmap-xxxhdpi", pixelSize: 192)
     ]
 
+    static let androidAdaptiveForeground: [AndroidAdaptiveIconSpec] = [
+        .init(folder: "mipmap-mdpi", pixelSize: 108),
+        .init(folder: "mipmap-hdpi", pixelSize: 162),
+        .init(folder: "mipmap-xhdpi", pixelSize: 216),
+        .init(folder: "mipmap-xxhdpi", pixelSize: 324),
+        .init(folder: "mipmap-xxxhdpi", pixelSize: 432)
+    ]
+
+    static let androidAdaptiveSafeZoneRatio = 0.66
+    static let androidAdaptiveBackgroundColorHex = "#FFFFFF"
+
     static let androidPlayStoreSize = 512
     static let maxRequiredSourceSize = 1024
+
+    /// Xcode 14+ "Single Size" iOS App Icon: 1024x1024 하나만 있으면 Xcode가 빌드 시
+    /// 나머지 사이즈를 자동 생성한다 (Build Settings의 `Include All App Icon Assets` 필요).
+    static let iOSUniversalPixelSize = 1024
+    static let iOSUniversalFileName = "AppIcon-1024.png"
 }

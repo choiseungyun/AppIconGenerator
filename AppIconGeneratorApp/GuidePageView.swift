@@ -26,6 +26,30 @@ struct GuidePageView: View {
                         )
 
                         guideCard(
+                            title: "iOS Universal (Single Size, Xcode 14+)",
+                            accent: .indigo,
+                            steps: [
+                                "iPhone/iPad 개별 사이즈 대신 1024x1024 한 장만 관리하고 싶다면 이 옵션을 사용합니다.",
+                                "Apple targets에서 'iOS Universal (Single Size, Xcode 14+)'를 체크합니다.",
+                                "생성된 iOS/AppIcon.appiconset을 Assets.xcassets에 넣고 App Icon 표시 방식을 'Single Size'로 설정합니다.",
+                                "Xcode Build Settings에서 'Include All App Icon Assets'를 YES로 켜면 나머지 사이즈를 Xcode가 빌드 시 자동으로 만듭니다."
+                            ],
+                            note: "iPhone/iPad 항목과 별개로 독립적으로 켤 수 있으며, 둘 다 켜도 무방합니다."
+                        )
+
+                        guideCard(
+                            title: "iOS 18 Dark / Tinted 아이콘",
+                            accent: .indigo,
+                            steps: [
+                                "'iOS Universal' 옵션을 켜면 Dark/Tinted 원본 이미지를 선택할 수 있는 칸이 나타납니다.",
+                                "Dark 아이콘은 어두운 배경에 어울리는 원본을 고르세요. 검정 배경으로 자동 flatten됩니다.",
+                                "Tinted 아이콘은 형태(실루엣) 위주로 준비하세요. 시스템이 사용자가 고른 색을 입히도록 자동으로 흑백 변환됩니다.",
+                                "둘 다 선택 사항입니다. 지정하지 않으면 기존처럼 라이트 아이콘만 생성됩니다."
+                            ],
+                            note: "iOS 18부터 사용자가 홈 화면에서 Light/Dark/Tinted 중 원하는 아이콘 스타일을 고를 수 있습니다."
+                        )
+
+                        guideCard(
                             title: "권장 확인사항",
                             accent: .green,
                             steps: [
@@ -54,18 +78,20 @@ struct GuidePageView: View {
                             title: "적용 예시",
                             accent: .purple,
                             steps: [
-                                "ic_launcher.png: 일반 런처 아이콘",
-                                "ic_launcher_round.png: 둥근 형태 지원용 아이콘",
-                                "ic_launcher-playstore.png: 스토어 업로드용 이미지"
+                                "ic_launcher.png / ic_launcher_round.png: 밀도별(mipmap-*) 레거시 런처 아이콘",
+                                "ic_launcher_foreground.png: 어댑티브 아이콘 전경 레이어 (Android 8.0+)",
+                                "mipmap-anydpi-v26/ic_launcher.xml: 어댑티브 아이콘 정의 (foreground + background 조합)",
+                                "values/ic_launcher_background.xml: 어댑티브 아이콘 배경 색상 리소스",
+                                "ic_launcher-playstore.png: 스토어 업로드용 512x512 이미지"
                             ],
-                            note: nil
+                            note: "mipmap-anydpi-v26과 values 폴더도 res 디렉터리 하위에 함께 복사해야 어댑티브 아이콘이 정상 적용됩니다."
                         )
                     }
                 }
                 .padding(20)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .navigationTitle(guideTitle)
+            .navigationTitle(Text(LocalizedStringKey(guideTitle)))
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("닫기") {
@@ -74,7 +100,7 @@ struct GuidePageView: View {
                 }
             }
         }
-        .frame(minWidth: 620, minHeight: 560)
+        .frame(minWidth: 620, maxWidth: 680, minHeight: 480, maxHeight: 720)
     }
 
     private var guideTitle: String {
@@ -88,7 +114,7 @@ struct GuidePageView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Label(guideTitle, systemImage: topic == .ios ? "apple.logo" : "android")
+            Label(LocalizedStringKey(guideTitle), systemImage: topic == .ios ? "apple.logo" : "android")
                 .font(.system(size: 26, weight: .bold))
 
             Text("아이콘 생성 후 각 플랫폼에 적용하는 방법을 정리한 안내 페이지입니다.")
@@ -98,7 +124,7 @@ struct GuidePageView: View {
 
     private func guideCard(title: String, accent: Color, steps: [String], note: String?) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(title)
+            Text(LocalizedStringKey(title))
                 .font(.system(size: 18, weight: .semibold))
 
             VStack(alignment: .leading, spacing: 10) {
@@ -111,14 +137,14 @@ struct GuidePageView: View {
                             .foregroundStyle(accent)
                             .clipShape(Circle())
 
-                        Text(step)
+                        Text(LocalizedStringKey(step))
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
             }
 
             if let note {
-                Text(note)
+                Text(LocalizedStringKey(note))
                     .font(.system(size: 13))
                     .foregroundStyle(.secondary)
                     .padding(.top, 4)
